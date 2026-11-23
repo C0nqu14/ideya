@@ -12,6 +12,8 @@ class CategoriaEnum(str, Enum):
     AR_LIVRE = "Ar Livre"
     CULTURA = "Cultura"
     FESTAS_EVENTOS = "Festas/Eventos"
+    CINEMA = "Cinema"
+    HAMBURGUERIA = "Hamburgueria"
 
 
 class LocalOut(BaseModel):
@@ -26,6 +28,7 @@ class LocalOut(BaseModel):
     longitude: float | None = None
     fotos: list[str] = Field(default_factory=list)
     notas_rapidas: str | None = None
+    descricao: str | None = None
 
 
 class CriarIdeyaRequest(BaseModel):

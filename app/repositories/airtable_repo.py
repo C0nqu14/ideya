@@ -46,6 +46,7 @@ def _to_local(record: dict[str, Any]) -> LocalOut:
         longitude=_optional_float(fields.get(AIRTABLE_FIELDS["longitude"])),
         fotos=_photo_urls(fields.get(AIRTABLE_FIELDS["fotos"])),
         notas_rapidas=fields.get(AIRTABLE_FIELDS["notas_rapidas"]),
+        descricao=fields.get("Descrição") or fields.get("Descricao"),
     )
 
 
