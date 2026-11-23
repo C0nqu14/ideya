@@ -13,7 +13,17 @@ class CategoriaEnum(str, Enum):
     CULTURA = "Cultura"
     FESTAS_EVENTOS = "Festas/Eventos"
     CINEMA = "Cinema"
-    HAMBURGUERIA = "Hamburgueria"
+    FAST_FOOD = "Fast Food"
+    HAMBURGUERIA = "Fast Food"
+
+    @classmethod
+    def _missing_(cls, value: object) -> "CategoriaEnum | None":
+        if isinstance(value, str) and value.strip().casefold() in {
+            "hamburgueria",
+            "hambuegueria",
+        }:
+            return cls.FAST_FOOD
+        return None
 
 
 class LocalOut(BaseModel):
