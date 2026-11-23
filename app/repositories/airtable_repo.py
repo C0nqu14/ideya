@@ -39,7 +39,7 @@ def _to_local(record: dict[str, Any]) -> LocalOut:
     return LocalOut(
         id=record["id"],
         nome=fields[AIRTABLE_FIELDS["nome"]],
-        categoria=CategoriaEnum(fields[AIRTABLE_FIELDS["categoria"]]),
+        categoria=CategoriaEnum(fields[AIRTABLE_FIELDS["categoria"]].strip()),
         zona=fields[AIRTABLE_FIELDS["zona"]],
         preco_medio_pessoa=int(fields[AIRTABLE_FIELDS["preco_medio_pessoa"]]),
         latitude=_optional_float(fields.get(AIRTABLE_FIELDS["latitude"])),
